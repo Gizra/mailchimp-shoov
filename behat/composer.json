@@ -1,0 +1,10 @@
+{
+  "name": "Behat tests for http://mailchimp.com",
+  "description": "Functional testing for http://mailchimp.com site.",
+  "require": {
+    "drupal/drupal-extension": "~3.0"
+  },
+  "config": {
+    "bin-dir": "bin/"
+  }
+}
