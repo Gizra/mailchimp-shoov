@@ -66,9 +66,6 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
   public function iShouldSeeTheDashboardAsRegisteredUser()
   {
     $this->getSession()->wait(4000);
-//    $url = $this->getSession()->getCurrentUrl();
-//    $url = $url . 'account/details/';
-
     $this->visit($this->getSession()->getCurrentUrl() . 'account/details/');
     $this->getSession()->wait(4000);
     $this->iWaitForCssElement('#details_form');
