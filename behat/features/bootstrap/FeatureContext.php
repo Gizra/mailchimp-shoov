@@ -37,20 +37,13 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
   }
 
   /**
-   * @When I go to log in page
+   * @When I login
    */
-  public function iGoToLogInPage() {
+  public function iLogin() {
     $this->iWaitForCssElement('.action-nav');
     $login = $this->getSession()->getPage()->find('named', array('link', 'Log In'));
     $this->getSession()->wait(4000);
     $login->click();
-  }
-
-  /**
-   * @When I log in as registered user
-   */
-  public function iLogInAsRegisteredUser() {
-
     $this->iWaitForCssElement('#login-content');
     //Fill username and password
     $this->getSession()->getPage()->fillField('username', 'Shoov');
@@ -63,11 +56,12 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
   /**
    * @Then I should see the dashboard as registered user
    */
-  public function iShouldSeeTheDashboardAsRegisteredUser()
-  {
+  public function iShouldSeeTheDashboardAsRegisteredUser() {
     $this->getSession()->wait(4000);
+    // Go to account detailes
     $this->visit($this->getSession()->getCurrentUrl() . 'account/details/');
     $this->getSession()->wait(4000);
+    // Assert username
     $this->iWaitForCssElement('#details_form');
     $name = $this->getSession()->getPage()->find('css', '#account-name');
     if ($name->getValue() != 'Gizra') {

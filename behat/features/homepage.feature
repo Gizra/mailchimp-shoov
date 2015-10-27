@@ -6,8 +6,5 @@ Feature: Homepage
   @javascript
   Scenario: Visit the homepage
     Given I visit the homepage
-    When  I go to log in page
-    And   I log in as registered user
+    When  I login
     Then  I should see the dashboard as registered user
-#    And   I should see "Gizra" in the "" element
-#     And  I go to "account/details/"
